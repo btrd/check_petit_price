@@ -1,7 +1,7 @@
 var request = require('request-promise');
 var config = require('dotenv').config();
 
-var sms_sens = false;
+var sms_send = false;
 
 function send_sms(proposal) {
   var url = 'https://smsapi.free-mobile.fr/sendmsg?user=' + process.env.FREE_MOBILE_USER + '&pass=' + process.env.FREE_MOBILE_PASSWORD + '&msg=';
@@ -9,7 +9,7 @@ function send_sms(proposal) {
   
   request(url)
   .then((res) => {
-    sms_sens = true;
+    sms_send = true;
     console.log('Proposal send by sms', proposal)
   })
   .catch((err) => {
@@ -32,6 +32,6 @@ function check_price_for(date) {
 }
 
 setInterval(() => {
-  if (sms_sens) { process.exit(); }
+  if (sms_send) { process.exit(); }
   check_price_for('2016-11-25');
-}, 600000);
+}, 10*60*1000);
