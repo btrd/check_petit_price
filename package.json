@@ -1,11 +1,17 @@
 {
-  "name": "check_train",
+  "name": "check_petit_price",
   "version": "0.0.1",
   "description": "Check for SNCF small price and send sms via Free",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jean Bertrand",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
 }
